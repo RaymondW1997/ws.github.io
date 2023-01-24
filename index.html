@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>login</title>
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css" />
+<!--必要样式-->
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<!--[if IE]>
+<script src="js/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+<audio id="audio" src="http://music.163.com/song/media/outer/url?id=1905938421.mp3" style="opacity:0" preload="auto" controls></audio>
+<script>
+	var myAuto = document.getElementById('audio');
+
+	myAuto.volume = 0.4
+
+	var app = document.getElementById("html_bd");
+	// 监听事件
+	app.addEventListener("mousemove", function(){
+		console.log("played");
+		myAuto.play();
+	}, true);
+
+	// 用定时器触发事件
+	setInterval(function(){
+		if ("createEvent" in document) {
+			var evt = document.createEvent("HTMLEvents");
+			evt.initEvent("mousemove", false, true);
+			app.dispatchEvent(evt);
+		}
+		else
+			app.fireEvent("onmousemove");
+	}, 1000);
+</script>
+<div class="container demo-1">
+	<div class="cs">
+		<img src="https://ocr-1315072006.cos.ap-shanghai.myqcloud.com/%E6%9D%82/%E5%BF%83%E7%A2%8E.jpg" id="logo"
+			 style="width: 15%; padding: 30px">
+	</div>
+	<div class="content">
+		<div id="large-header" class="large-header">
+			<canvas id="demo-canvas"></canvas>
+			<div class="logo_box">
+				------&nbsp2023/1/24<br/>
+				<br/>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp昨天梦见你了，但情节不是那么好。在惊醒后我想，是不是深层潜意识中把你变坏会让当初放弃的选择更加坚定更加心安理得？但是，为什么还会这么心痛地醒来？<br/>
+				<br/>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp事情过去已经快十个月了，心情复杂依旧，和旁人提起来当初种种恶心和愤恨的情绪还是居多，根本就做不到彻底放下与原谅。不过现在我坚信一件事情，我们的确不合适。即使你能够顺利来杭州，未来我们也注定不会很幸福。婚姻不一样，你不是我需要的那个人。<br/>
+				<br/>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp去年下半年我的确经历了很大的变故，我亲手毁掉了让我烦恼的这一切，一切都在重新开始。回过头来才发现，原来失去自我才是最让我痛苦的事情。我现在挺好的，身心健康，也在做自己喜欢做的事情。<br/>
+				<br/>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp分手不需要体面，不要用一些烂俗的影视情节和歌词去套在每一段独特的故事里。东拼西凑碎碎念了这么多，也不想祝你以后怎么怎么样，做好自己再稍微聪明点就行吧。这个网站反正还有不少时间，以后应该也会偶尔更新。<br/>
+				<br/>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp也该翻页了。<br/>
+				<!--						<form action="#" name="f" method="post">-->
+				<!--							<div class="input_outer">-->
+				<!--								<span class="u_user"></span>-->
+				<!--								<input name="logname" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入账户">-->
+				<!--							</div>-->
+				<!--							<div class="input_outer">-->
+				<!--								<span class="us_uer"></span>-->
+				<!--								<input name="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">-->
+				<!--							</div>-->
+				<!--							<div class="mb2"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a></div>-->
+				<!--						</form>-->
+			</div>
+		</div>
+	</div>
+	<p class="bottomText" style="color: #ff0000">
+		We have been separated for
+		<br/>
+		<span id="span_dt_dt"></span>
+	</p>
+</div><!-- /container -->
+<script>
+	function show_date_time() {
+		window.setTimeout("show_date_time()", 1000);
+		SeparateDay = new Date("04/05/2022");
+		today = new Date();
+		timeold = (today.getTime() - SeparateDay.getTime());
+		sectimeold = timeold / 1000
+		secondsold = Math.floor(sectimeold);
+		msPerDay = 24 * 60 * 60 * 1000
+		e_daysold = timeold / msPerDay
+		daysold = Math.floor(e_daysold);
+		e_hrsold = (e_daysold - daysold) * 24;
+		hrsold = Math.floor(e_hrsold);
+		e_minsold = (e_hrsold - hrsold) * 60;
+		minsold = Math.floor((e_hrsold - hrsold) * 60);
+		seconds = Math.floor((e_minsold - minsold) * 60);
+		span_dt_dt.innerHTML = daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+	}
+
+	show_date_time();
+</script>
+<script src="js/TweenLite.min.js"></script>
+<script src="js/EasePack.min.js"></script>
+<script src="js/rAF.js"></script>
+<script src="js/demo-1.js"></script>
+</body>
+</html>
